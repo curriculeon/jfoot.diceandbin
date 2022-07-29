@@ -11,7 +11,7 @@ import greenfoot.core.WorldHandler;
 public class MainApplication {
     public static void main(String[] args) {
         new JFootApplication().run();
-        TicTacToeBoard world = new TicTacToeBoard();
+        BinAndDiceWorld world = new BinAndDiceWorld();
         WorldHandler.getInstance().getWorld();
         Greenfoot.setWorld(world);
         Greenfoot.setSpeed(100);

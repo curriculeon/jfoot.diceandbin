@@ -3,15 +3,14 @@ package com.github.curriculeon.jfoot;
 import com.github.git_leon.jfoot.resources.JFootTextImageBuilder;
 import greenfoot.Actor;
 import greenfoot.Color;
-import greenfoot.Greenfoot;
 
 import java.util.List;
 
-public class Bin extends Actor {
+public class Data extends Actor {
     private final int diceFaceValue;
     private int numberOfOccurrences;
 
-    public Bin(int diceFaceValue) {
+    public Data(String text, int diceFaceValue) {
         this.numberOfOccurrences = 0;
         this.diceFaceValue = diceFaceValue;
         setImage(new JFootTextImageBuilder()
@@ -19,20 +18,21 @@ public class Bin extends Actor {
                 .setForeground(Color.BLACK)
                 .setOutline(Color.BLACK)
                 .setSize(15)
-                .setString(String.format("Face: %s", diceFaceValue))
+                .setString(text)
                 .build());
+    }
+
+    public void refreshCountDisplay() {
+        List<Data> staleBinObjects = getWorld().getObjectsAt(getX() + 1, getY(), Data.class);
+        for(Data bin : staleBinObjects) {
+            getWorld().removeObject(bin);
+        }
+        Data counterData = new Data("Value: " + numberOfOccurrences, numberOfOccurrences);
+        getWorld().addObject(counterData, getX() + 1, getY());
     }
 
     public void increaseCount() {
         numberOfOccurrences++;
-    }
-
-    public void refreshCountDisplay() {
-        List<Bin> staleBinObjects = getWorld().getObjectsAt(getX() + 1, getY(), Bin.class);
-        for(Bin bin : staleBinObjects) {
-            getWorld().removeObject(bin);
-        }
-        getWorld().addObject(new Bin(numberOfOccurrences), getX() + 1, getY());
     }
 
     @Override

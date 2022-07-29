@@ -1,13 +1,13 @@
-# JFoot Tic Tac Toe Board
+# Bin And Dice Simulator
 
-* **Objective** - To create a tic tac toe board
-* **Purpose** - To gain familiarity with arrays
+* **Objective** - To create a bin and dice simulator
+* **Purpose** - To gain familiarity with algorithms
 
 
 
 
 ## Objective
-* Modify the `TicTacToeBoard`'s `act` method to display a winner when a game is over.
+* Modify the `BinAndDiceWorld`'s `act` method to modify the number of times a particular face-value has occured upon rolling a dice.
 
 
 

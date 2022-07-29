@@ -21,7 +21,7 @@ public class DemoAppTest {
             Long totalSimulationTime = (numberOfRounds * durationOfRoundsInMilliseconds) + timeToEvaluateResultsInMilliseconds;
             totalSimulationTime *=  50 / simulationSpeed ;
             new JFootApplication().run();
-            Greenfoot.setWorld(new TicTacToeBoard());
+            Greenfoot.setWorld(new BinAndDiceWorld());
             Greenfoot.setSpeed(simulationSpeed);
             WorldHandler.getInstance().getWorld();
             Thread.sleep(totalSimulationTime);
